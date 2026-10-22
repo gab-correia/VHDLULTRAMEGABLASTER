@@ -30,6 +30,11 @@ jobs:
             module: test_mips_ram
             sources: ../src/mips_ram.vhd
 
+          - name: Toplevel
+            toplevel: mips_word_toplevel
+            module: test_mips_word_toplevel
+            sources: ../src/ula.vhd ../src/reg_file.vhd ../src/sign_extender.vhd ../src/pc_register.vhd ../src/mips_decoder.vhd ../src/mips_rom.vhd ../src/mips_ram.vhd ../src/mips_word_toplevel.vhd
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -39,4 +44,4 @@ jobs:
           make -C /var/www/test/ \
             TOPLEVEL=${{ matrix.toplevel }} \
             MODULE=${{ matrix.module }} \
-            VHDL_SOURCES=${{ matrix.sources }}
+            VHDL_SOURCES="${{ matrix.sources }}"

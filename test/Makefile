@@ -13,3 +13,8 @@ ram:
 	$(MAKE) TOPLEVEL=mips_ram \
 	        MODULE=test_mips_ram \
 	        VHDL_SOURCES=../src/mips_ram.vhd
+
+toplevel:
+	$(MAKE) TOPLEVEL=mips_word_toplevel \
+	        MODULE=test_mips_word_toplevel \
+	        VHDL_SOURCES="../src/ula.vhd ../src/reg_file.vhd ../src/sign_extender.vhd ../src/pc_register.vhd ../src/mips_decoder.vhd ../src/mips_rom.vhd ../src/mips_ram.vhd ../src/mips_word_toplevel.vhd"
